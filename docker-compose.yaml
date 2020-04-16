@@ -1,0 +1,19 @@
+version: '3'
+services:
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        INSTALL_DEPENDENCIES: vim curl htop
+    container_name: search-music
+    environment:
+      - PORT=3001
+    volumes:
+      - ./project/SearchMusic/:/SearchMusic
+      - ./start_catalyst/:/start_catalyst
+    network_mode: 'host'
+    command: /start_catalyst/cmd.sh /SearchMusic/script/server.pl
+    # command: "unbuffer perl /MyApp/script/myapp_server.pl -p $PORT -r -d"
+    # command: "unbuffer perl /MyApp/script/myapp_server.pl --debug --fork --port 3001 --keepalive --restart --restart_delay 1"
