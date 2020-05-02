@@ -8,7 +8,8 @@ __PACKAGE__->config(namespace => '');
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
-    $c->response->body( $c->welcome_message );
+    $c->response->body("hello");
+    # $c->response->body( $c->welcome_message );
 }
 
 sub default :Path {

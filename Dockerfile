@@ -22,7 +22,8 @@ RUN apt-get update -qq \
     /var/lib/log
 
 WORKDIR /SearchMusic
-COPY project /SearchMusic
+COPY project/SearchMusic /SearchMusic
+COPY start_catalyst /start_catalyst
 
-CMD echo 'start by hand'
+CMD /start_catalyst/cmd.sh /SearchMusic/script/server.pl
 
